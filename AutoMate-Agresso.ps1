@@ -1,7 +1,7 @@
 ﻿<#
-Hello and welcome to my script to #FuckAgresso and the end of spending hours reporting time in a usless stupid fucking system that never works and is a piece of crap.
+Hello and welcome to my script to #FuckAgresso and the end of spending hours reporting time in a useless stupid fucking system that never works and is a piece of crap.
 If you are a regular normal person this is FREE OF USE.
-If this is a big corparation/company please email johan.samuelsson42@gmail.com and I'd happily let you use MY code for a fair price. (100Eur/User/Month, can be discussed)
+If you are corporation/company please email johan.samuelsson42@gmail.com and I'd happily let you use MY code for a fair price. (100Eur/User/Month, can be discussed)
 
 The script is ment to be used in conjunction with tampermonkey and a javascript to fill in the private notes when you close a ticket.
 If you find this script useful and want to give me a gift in form of a Motorcycle, a new car, 1 million dollars or possibly some candy or an ice cream from the snack machine feel free to do so.
@@ -21,7 +21,7 @@ https://docs.microsoft.com/en-us/previous-versions/office/developer/office-xp/aa
 #Bare in mind having this typing usernames and passwords are incredebly unsecure BUT FUCK AGRESSO!
 Add-Type -AssemblyName System.Windows.Forms
 
-# Your working directory
+# Your working directory (Get script file location))
 $workingPath = Get-Location
 
 # Add the working directory to the environment path.
@@ -138,11 +138,11 @@ function WaitFor {
         try {
             if ($ChromeDriver.FindElementByCssSelector($Element)) {
                 $Wait = $true
-                Write-Host 'Element found'
+                #Write-Host 'Element found'
             } 
         }
         catch {
-            Write-Host 'Element not found'
+            Write-Host 'Element not found, please contact Johan S'
             Write-Host $Element
         }
     }
