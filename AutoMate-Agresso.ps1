@@ -1,5 +1,5 @@
 ﻿<#
-Hello and welcome to my script to #FuckAgresso and the end of spending hours reporting time in a useless stupid fucking system that never works and is a piece of crap.
+Hello and welcome to my script to #AutoMate Agresso and the end of spending hours reporting time stupid system that's a bit janky.
 If you are a regular normal person this is FREE OF USE.
 If you are corporation/company please email johan.samuelsson42@gmail.com and I'd happily let you use MY code for a fair price. (100Eur/User/Month, can be discussed)
 
@@ -18,10 +18,10 @@ https://docs.microsoft.com/en-us/previous-versions/office/developer/office-xp/aa
 #This makes the
 #[System.Windows.Forms.SendKeys]::SendWait('shit to type')
 #work.
-#Bare in mind having this typing usernames and passwords are incredebly unsecure BUT FUCK AGRESSO!
+#Bare in mind having this typing usernames and passwords are incredebly unsecure!
 Add-Type -AssemblyName System.Windows.Forms
 
-# Your working directory (Get script file location))
+# Your working directory (Get script file location)
 $workingPath = Get-Location
 
 # Add the working directory to the environment path.
@@ -36,7 +36,7 @@ Import-Module "$($workingPath)\WebDriver.dll"
 #Import the export from TimeReportPrepCSV.ps1
 $CSV = Import-Csv .\export.csv
 
-#Also having the username and password upload to github is fucking stupid, here's a config file; USE IT!
+#Config file loop to import username and password for agresso!
 Foreach ($i in $(Get-Content Config.txt)) {
     Set-Variable -Name $i.split("=")[0] -Value $i.split("=", 2)[1]
 }
@@ -46,8 +46,8 @@ $Headers = @{
     'Password' = $Password
 }
 
-#Below will purge some more fucking errors that are stupid and taking up space
-#Don't aske me why log-level=3 does it, i don't have a fekking clue.
+#Below will purge some errors that are taking up space
+#Don't aske me why log-level=3 does it, I don't have a clue.
 #.\chromedriver.exe --help
 $ChromeOptions = New-Object OpenQA.Selenium.Chrome.ChromeOptions
 $ChromeOptions.AddArgument('log-level=3')
@@ -59,8 +59,7 @@ $ChromeOptions.AddArgument(@(
         'and so on'))
 #>
 
-#Function to download the latest ChromeDriver, it didn't need to be a fucntion but fuck you.
-#This might be moved to a separate script?
+#Function to download the latest ChromeDriver.
 function GetChromeDriver {
     #Check the latest STABLE version of ChromeDriver
     $ChromeDriverVersion = Invoke-WebRequest "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
@@ -105,19 +104,20 @@ while ($CheckChromeDriverRunning -eq $false) {
     }
 }
 
-#Get primary monitor size
+#Get primary monitor size.
 $PrimaryMonitorWidth = [System.Windows.Forms.SystemInformation]::PrimaryMonitorSize.Width
 $PrimaryMonitorHeight = [System.Windows.Forms.SystemInformation]::PrimaryMonitorSize.Height
 
-#Set the fkn size of the window.
+#Set the size of the window.
 $ChromeDriver.Manage().Window.Size = "$PrimaryMonitorWidth,$PrimaryMonitorHeight"
 
-#Move the fkn window.
+#Move the window.
 $ChromeDriver.Manage().Window.Position = "0,0"
 
 #Launch a browser and go to URL
 $ChromeDriver.Navigate().GoToURL('https://agresso.advania.se/ubwprod/ContentContainer.aspx?type=topgen&menu_id=TS294&activityStepId=1-1&argument=&client=20&showMode=home')
 
+#Take a nap.
 Start-Sleep 1
 
 #Type Username, press TAB, type password, press Enter. #Security101 :D
@@ -162,15 +162,16 @@ for ($i = 1; $i -lt 32; $i++) {
     }
     try {
         if ($ChromeDriver.FindElementByXPath("//*[contains(@title, '$j/$CurrentMonth')]").Text -match ('\d\d\/\d\d')) {
-            #For some fucking reason this is a fucking hashtable, what the fuck? I mean there is hash so that's the goo... DON'T DO DRUGS KIDS!
-            #Or maybe it's not a hashtable, i can't fucking remember.
+            #For some reason this is a hashtable, wat?
+            #Or maybe it's not a hashtable, i can't remember.
+            #Anyways, convert this to something i can actually use.
             $AgressoDate = $Matches
             $AgressoDates += $AgressoDate.Values
         }
     }
     catch {
         Out-Null
-        #Write-Host "Error message fucking purged."
+        #Write-Host "Error messaged purged."
     }
 }
 
@@ -195,9 +196,7 @@ foreach ($row in $CSV) {
     $day = [regex]::match($date, '-(\d\d)-(\d\d)').Groups[2].Value
     $date = $day + '/' + $month
 
-    #Naming variables fucking sucks ass fuck me
-    #Shit $i is already a counter in this loop and... fuck it, $j it is.
-    #Also it starts on one because for some reason that's what it does in the code... #FUCKAGRESSO
+    #$i is already a counter in this loop $j it is.
     $j = 1
     foreach ($DateInAgresso in $AgressoDates) {
         if ($date -eq $DateInAgresso) {
@@ -230,7 +229,7 @@ foreach ($row in $CSV) {
     WaitFor('#b_s89_g89s90_row' + $i + '_description_i');
     $ChromeDriver.FindElementByCssSelector('#b_s89_g89s90_row' + $i + '_description_i').SendKeys($description);
 
-    #Click Body because agresso is fucking retarded.
+    #Click Body because agresso needs to submit/commit the value and this is one way to do it.
     $ChromeDriver.FindElementByCssSelector('body').click();
 
     #Write Time.
@@ -239,9 +238,8 @@ foreach ($row in $CSV) {
     $ChromeDriver.FindElementByCssSelector('#b_s89_g89s90_row' + $i + '_reg_value' + $j + '_i').SendKeys([OpenQA.Selenium.Keys]::Control + "a");
     $ChromeDriver.FindElementByCssSelector('#b_s89_g89s90_row' + $i + '_reg_value' + $j + '_i').SendKeys($time);
 
-    #Click Body because agresso is fucking retarded.
+    #Click Body...
     $ChromeDriver.FindElementByCssSelector('body').click();
-
 
     $i++;
     Write-Host $i " of " $totalRows " rows done!";
