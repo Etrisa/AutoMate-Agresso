@@ -171,7 +171,7 @@ for ($i = 1; $i -lt 32; $i++) {
     }
     catch {
         Out-Null
-        #Write-Host "Error messaged purged."
+        #Write-Host "Error message purged."
     }
 }
 
