@@ -1,8 +1,8 @@
 ﻿#Import csv file
 $CustomerCodes = Import-Csv CustomerCodes.csv;
-$import = Import-Csv task.csv -Delimiter ';';
+$importTasks = Import-Csv task.csv -Delimiter ';';
 
-foreach ($row in $import) {
+foreach ($row in $importTasks) {
     $Ticket = $row.Number;
     $Company = $row.Company;
     $PrivateNote = $row."Private notes (Advania visible only)";
@@ -10,7 +10,6 @@ foreach ($row in $import) {
     #Get name from private note
     $PrivateNoteName = [regex]::match($PrivateNote, 'Name:(.*)', 'IgnoreCase').Groups[1].Value;
     $PrivateNoteName = $PrivateNoteName.Trim();
-
 
     #Get short description from private note
     $PrivateNoteShortDescription = [regex]::match($PrivateNote, 'Short Description:(.*)', 'IgnoreCase').Groups[1].Value;
@@ -27,7 +26,20 @@ foreach ($row in $import) {
     foreach ($row in $CustomerCodes) {
         if ($Company -eq $row.Company -and $PrivateNoteInomAvtal -eq $row.Avtal) {
             $CompanyCode = $row.Code;
+            #Added a check to see if customer exists or not.
+            $CustomerCodesCheck = $true
+            break
         }
+        else {
+            $CustomerCodesCheck = $false
+        }
+    }
+
+    if ($CustomerCodesCheck -eq $false) {
+        Write-Host $Company -ForegroundColor Yellow -NoNewline; Write-Host " with agreement " -NoNewline; Write-Host $PrivateNoteInomAvtal -ForegroundColor Yellow -NoNewline; Write-Host " is missing in CustomerCodes.csv, please update this file or ask Johan to update it"
+        Write-Host "Press any key to exit."
+        cmd /c pause | out-null;
+        exit
     }
 
     $Date = [regex]::match($PrivateNote, '\d{4}-\d{2}-\d{2}', 'IgnoreCase').Groups[0].Value;
@@ -50,6 +62,7 @@ foreach ($row in $import) {
         Time             = $PrivateNoteTime
     } | Export-Csv export.csv -Delimiter ',' -notype -Append -Encoding UTF8
 }
+
 #And let us look at the result before closing the window.
 write-host "Done";
 cmd /c pause | out-null;
