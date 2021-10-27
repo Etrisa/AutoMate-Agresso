@@ -62,7 +62,7 @@ $ChromeOptions.AddArgument(@(
 #Function to download the latest ChromeDriver.
 function GetChromeDriver {
     #Check the latest STABLE version of ChromeDriver
-    $ChromeDriverVersion = Invoke-WebRequest "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
+    $ChromeDriverVersion = Invoke-WebRequest "https://chromedriver.storage.googleapis.com/LATEST_RELEASE" -UseBasicParsing
     $ChromeDriverVersion = $ChromeDriverVersion.content
     #Get the script location
     $ScriptLocation = Get-Location
@@ -77,7 +77,7 @@ function GetChromeDriver {
     #Write it, cut it, paste it, save it, load it, check it, quick rewrite it
     #Charge it, point it, zoom it, press it, snap it, work it, quick erase it
     #Sorry for the Daft Punk - Technologic refference.
-    Invoke-WebRequest "https://chromedriver.storage.googleapis.com/$ChromeDriverVersion/chromedriver_win32.zip" -OutFile "$ScriptLocation\driver.zip"
+    Invoke-WebRequest "https://chromedriver.storage.googleapis.com/$ChromeDriverVersion/chromedriver_win32.zip" -OutFile "$ScriptLocation\driver.zip" -UseBasicParsing
     Expand-Archive "$ScriptLocation\driver.zip"
     Move-Item -Path "$ScriptLocation\driver\*.exe" -Destination "$ScriptLocation"
     Remove-Item "$ScriptLocation\driver"
