@@ -1,7 +1,7 @@
 ﻿<#
 Hello and welcome to my script to #AutoMate Agresso and the end of spending hours reporting time stupid system that's a bit janky.
 If you are a regular normal person this is FREE OF USE.
-If you are corporation/company please email johan.samuelsson42@gmail.com and I'd happily let you use MY code for a fair price. (100Eur/User/Month, can be discussed)
+If you are corporation/company please email johan.samuelsson42 @ gmail.com and I'd happily let you use MY code for a fair price. (100Eur/User/Month, can be discussed)
 
 The script is ment to be used in conjunction with tampermonkey and a javascript to fill in the private notes when you close a ticket.
 If you find this script useful and want to give me a gift in form of a Motorcycle, a new car, 1 million dollars or possibly some candy or an ice cream from the snack machine feel free to do so.
