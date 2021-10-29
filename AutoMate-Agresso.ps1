@@ -1,4 +1,9 @@
 ﻿<#
+With the new webdriver the following should work.
+$ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_buttons__newButton'))
+#>
+
+<#
 Hello and welcome to my script to #AutoMate Agresso and the end of spending hours reporting time stupid system that's a bit janky.
 If you are a regular normal person this is FREE OF USE.
 If you are corporation/company please email johan.samuelsson42 @ gmail.com and I'd happily let you use MY code for a fair price. (100Eur/User/Month, can be discussed)
@@ -136,7 +141,7 @@ function WaitFor {
     while ($Wait -eq $false) {
         Start-Sleep 1
         try {
-            if ($ChromeDriver.FindElementByCssSelector($Element)) {
+            if ($ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector($Element))) {
                 $Wait = $true
                 #Write-Host 'Element found'
             } 
@@ -211,35 +216,35 @@ foreach ($row in $CSV) {
     $description = $ticket + '-' + $name + ', #Beskrivning: ' + $shortDescription + ' #Stägnings notis: ' + $CloseNote
 
     #Click "Lägg till" (Adds a row in agresso)
-    #$ChromeDriver.FindElementByCssSelector('#b_s89_g89s90_buttons__newButton').Click()
+    #$ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_buttons__newButton').Click()
     #Above does not work, once "Lägg till" scrolls out of view it can no longer be clicked, however sending enter key to the element works.
     #This is done via ".SendKeys([OpenQA.Selenium.Keys]::Enter)", unlike "[System.Windows.Forms.SendKeys]::SendWait('{ENTER}')" this seemes to work in the background.
     WaitFor('#b_s89_g89s90_buttons__newButton');
-    $ChromeDriver.FindElementByCssSelector('#b_s89_g89s90_buttons__newButton').SendKeys([OpenQA.Selenium.Keys]::Enter);
+    $ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_buttons__newButton')).SendKeys([OpenQA.Selenium.Keys]::Enter);
     
     #Write "Deploj" code.
     WaitFor('#b_s89_g89s90_row' + $i + '_1574_Editor');
-    $ChromeDriver.FindElementByCssSelector('#b_s89_g89s90_row' + $i + '_1574_Editor').SendKeys($code);
+    $ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_row' + $i + '_1574_Editor')).SendKeys($code);
     
     #Write "Aktivitet" (Tek)
     WaitFor('#b_s89_g89s90_row' + $i + '_1576_Editor');
-    $ChromeDriver.FindElementByCssSelector('#b_s89_g89s90_row' + $i + '_1576_Editor').SendKeys('TEK');
+    $ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_row' + $i + '_1576_Editor')).SendKeys('TEK');
     
     #Write "Beskrivning" (Description)
     WaitFor('#b_s89_g89s90_row' + $i + '_description_i');
-    $ChromeDriver.FindElementByCssSelector('#b_s89_g89s90_row' + $i + '_description_i').SendKeys($description);
+    $ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_row' + $i + '_description_i')).SendKeys($description);
 
     #Click Body because agresso needs to submit/commit the value and this is one way to do it.
-    $ChromeDriver.FindElementByCssSelector('body').click();
+    $ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('body')).click();
 
     #Write Time.
     WaitFor('#b_s89_g89s90_row' + $i + '_reg_value' + $j + '_i');
-    $ChromeDriver.FindElementByCssSelector('#b_s89_g89s90_row' + $i + '_reg_value' + $j + '_i').SendKeys([OpenQA.Selenium.Keys]::Enter);
-    $ChromeDriver.FindElementByCssSelector('#b_s89_g89s90_row' + $i + '_reg_value' + $j + '_i').SendKeys([OpenQA.Selenium.Keys]::Control + "a");
-    $ChromeDriver.FindElementByCssSelector('#b_s89_g89s90_row' + $i + '_reg_value' + $j + '_i').SendKeys($time);
+    $ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_row' + $i + '_reg_value' + $j + '_i')).SendKeys([OpenQA.Selenium.Keys]::Enter);
+    $ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_row' + $i + '_reg_value' + $j + '_i')).SendKeys([OpenQA.Selenium.Keys]::Control + "a");
+    $ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_row' + $i + '_reg_value' + $j + '_i')).SendKeys($time);
 
     #Click Body...
-    $ChromeDriver.FindElementByCssSelector('body').click();
+    $ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('body')).click();
 
     $i++;
     Write-Host $i " of " $totalRows " rows done!";
