@@ -1,9 +1,4 @@
 ﻿<#
-With the new webdriver the following should work.
-$ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_buttons__newButton'))
-#>
-
-<#
 Hello and welcome to my script to #AutoMate Agresso and the end of spending hours reporting time stupid system that's a bit janky.
 If you are a regular normal person this is FREE OF USE.
 If you are corporation/company please email johan.samuelsson42 @ gmail.com and I'd happily let you use MY code for a fair price. (100Eur/User/Month, can be discussed)
@@ -56,6 +51,7 @@ $Headers = @{
 #.\chromedriver.exe --help
 $ChromeOptions = New-Object OpenQA.Selenium.Chrome.ChromeOptions
 $ChromeOptions.AddArgument('log-level=3')
+$ChromeOptions.AddArgument('--lang=en-en')
 <#
 This can also be an array
 $ChromeOptions.AddArgument(@(
@@ -166,7 +162,7 @@ for ($i = 1; $i -lt 32; $i++) {
         $j = $i
     }
     try {
-        if ($ChromeDriver.FindElementByXPath("//*[contains(@title, '$j/$CurrentMonth')]").Text -match ('\d\d\/\d\d')) {
+        if ($ChromeDriver.FindElement([OpenQA.Selenium.By]::XPath("//*[contains(@title, '$j/$CurrentMonth')]")).Text -match ('\d\d\/\d\d')) {
             #For some reason this is a hashtable, wat?
             #Or maybe it's not a hashtable, i can't remember.
             #Anyways, convert this to something i can actually use.
