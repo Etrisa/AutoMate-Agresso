@@ -16,7 +16,7 @@ https://docs.microsoft.com/en-us/previous-versions/office/developer/office-xp/aa
 #>
 
 #This makes the
-#[System.Windows.Forms.SendKeys]::SendWait('shit to type')
+#[System.Windows.Forms.SendKeys]::SendWait('stuff to type')
 #work.
 #Bare in mind having this typing usernames and passwords are incredebly unsecure!
 Add-Type -AssemblyName System.Windows.Forms
