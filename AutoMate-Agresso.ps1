@@ -109,6 +109,9 @@ while ($CheckChromeDriverRunning -eq $false) {
 $PrimaryMonitorWidth = [System.Windows.Forms.SystemInformation]::PrimaryMonitorSize.Width
 $PrimaryMonitorHeight = [System.Windows.Forms.SystemInformation]::PrimaryMonitorSize.Height
 
+$PrimaryMonitorWidth = $PrimaryMonitorWidth - 550
+$PrimaryMonitorHeight = $PrimaryMonitorHeight - 250
+
 #Set the size of the window.
 $ChromeDriver.Manage().Window.Size = "$PrimaryMonitorWidth,$PrimaryMonitorHeight"
 
