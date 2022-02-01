@@ -38,8 +38,7 @@ foreach ($row in $importTasks) {
     if ($CustomerCodesCheck -eq $false) {
         Write-Host "Ticket:" $Ticket $Company -ForegroundColor Yellow -NoNewline; Write-Host " with agreement " -NoNewline; Write-Host $PrivateNoteInomAvtal -ForegroundColor Yellow -NoNewline; Write-Host " is missing in CustomerCodes.csv, please update this file or ask Johan to update it"
         Write-Host "Press any key to exit."
-        cmd /c pause | out-null;
-        exit
+        continue
     }
 
     $Date = [regex]::match($PrivateNote, '\d{4}-\d{2}-\d{2}', 'IgnoreCase').Groups[0].Value;
