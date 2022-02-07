@@ -146,7 +146,7 @@ function WaitFor {
             } 
         }
         catch {
-            Write-Host 'Element not found, please contact Johan S'
+            Write-Host '(Most likely wrong sorting, click "Tidkod" once or twice) Element not found, please contact Johan S'
             Write-Host $Element
         }
     }
@@ -170,6 +170,7 @@ for ($i = 1; $i -lt 32; $i++) {
             #Or maybe it's not a hashtable, i can't remember.
             #Anyways, convert this to something i can actually use.
             $AgressoDate = $Matches
+            #This recreates the list each iteration and should be fixed in a future update.
             $AgressoDates += $AgressoDate.Values
         }
     }
@@ -200,19 +201,27 @@ foreach ($row in $CSV) {
     $day = [regex]::match($date, '-(\d\d)-(\d\d)').Groups[2].Value
     $date = $day + '/' + $month
 
+    #Check if date is within range, if not skip it.
+    if (!($AgressoDates -contains $date)) {
+        write-host "Date outside range, skipping"
+        #Since row is not filled in decreese total rows counter.
+        #Don't increese $i since it's used for finding elements and would probably mess things up.
+        $totalRows--
+        Continue
+    }
+
     #$i is already a counter in this loop $j it is.
+    #$j is used to find correct element later.
     $j = 1
     foreach ($DateInAgresso in $AgressoDates) {
         if ($date -eq $DateInAgresso) {
             Write-Host "Date match found."
             break
         }
-        else {
-            $j++
-        }
+        $j++
     }
 
-    $description = $ticket + '-' + $name + ', #Beskrivning: ' + $shortDescription + ' #Stägnings notis: ' + $CloseNote
+    $description = $ticket + '-' + $name + ', - Beskrivning: ' + $shortDescription + ' - Lösning: ' + $CloseNote
 
     #Click "Lägg till" (Adds a row in agresso)
     #$ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_buttons__newButton').Click()
