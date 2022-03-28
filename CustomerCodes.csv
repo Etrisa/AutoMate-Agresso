@@ -48,12 +48,13 @@
 108972-1,ADVOKATFIRMA DLA NORDIC,WsIn
 109816-1,Ludvig & Co,Ja
 109816-1,Ludvig & Co,WsIn
+109415-1,Ludvig & Co,WsOut
 109211-1,Sandvik,Ja
 109211-1,Sandvik,WsIn
 109863-1,Cirio Advokatbyrå AB,Ja
+109802-2,Cirio Advokatbyrå AB,Nej
 109863-1,Cirio Advokatbyrå AB,WsIn
-109802-2,Cirio Advokatbyrå AB,Nej
-109802-2,Cirio Advokatbyrå AB,Nej
+109802-2,Cirio Advokatbyrå AB,WsOut
 110011-2,Svalner Skatt & Transaktion KB,Nej
 110090-1,Svalner Skatt & Transaktion KB,Ja
 110090-1,Svalner Skatt & Transaktion KB,WsIn
@@ -62,6 +63,7 @@
 109975-3,Stockholms Terminal AB,Ja
 110014-1,Stockholms Terminal AB,Nej
 500319-1,Lantmännen ek för,Ja
+108069-1,Lantmännen ek för,WsOut
 109713-1,Advokatfirman Kahn Pedersen KB,Ja
 109712-1,Advokatfirman Kahn Pedersen KB,Nej
 109713-1,Advokatfirman Kahn Pedersen KB,WsIn
@@ -73,11 +75,11 @@
 110096-1,Brick Advokat Kommanditbolag,WsIn
 110212-1,Advokatbyrån Kaiding Kommanditbolag,Ja
 110126-3,Advokatbyrån Kaiding Kommanditbolag,WsOut
+110212-1,Advokatbyrån Kaiding Kommanditbolag,WsIn
 109709-1,Advokatfirma Titov och Partners KB,Nej
 109709-1,Advokatfirma Titov och Partners KB,WsOut
 109710-1,Advokatfirma Titov och Partners KB,Ja
 300028-4,SBC Sveriges BostadsrättsCentrum AB,Ja
-108069-1,Lantmännen ek för,WsOut
 110349-2,SBC Sveriges BostadsrättsCentrum AB,WsOut
 109950-2,Advokatbyrån Wallin & Partners AB,WsOut
 110179-1,Agenda Advokatbyrå AB,Ja
