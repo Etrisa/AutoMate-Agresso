@@ -203,8 +203,8 @@ foreach ($row in $CSV) {
 
     #Check if date is within range, if not skip it.
     if (!($AgressoDates -contains $date)) {
-        write-host "Date outside range, skipping"
-        #Since row is not filled in decreese total rows counter.
+        write-host "Date" $date "outside range, skipping"
+        #Since row is not filled in; decreese total rows counter.
         #Don't increese $i since it's used for finding elements and would probably mess things up.
         $totalRows--
         Continue
@@ -221,7 +221,7 @@ foreach ($row in $CSV) {
         $j++
     }
 
-    $description = $ticket + '-' + $name + ', - Beskrivning: ' + $shortDescription + ' - Lösning: ' + $CloseNote
+    $description = $ticket + '-' + $name + ' - Beskrivning: ' + $shortDescription + ' - Lösning: ' + $CloseNote
 
     #Click "Lägg till" (Adds a row in agresso)
     #$ChromeDriver.FindElement([OpenQA.Selenium.By]::CssSelector('#b_s89_g89s90_buttons__newButton').Click()
