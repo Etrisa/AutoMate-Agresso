@@ -203,7 +203,7 @@ foreach ($row in $CSV) {
 
     #Check if date is within range, if not skip it.
     if (!($AgressoDates -contains $date)) {
-        write-host "Date" $date "outside range, skipping"
+        write-host $ticket "- Date" $date "outside range, skipping"
         #Since row is not filled in; decreese total rows counter.
         #Don't increese $i since it's used for finding elements and would probably mess things up.
         $totalRows--
