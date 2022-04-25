@@ -58,6 +58,7 @@
 109863-1,Cirio Advokatbyrå AB,WsIn
 109802-2,Cirio Advokatbyrå AB,WsOut
 110011-2,Svalner Skatt & Transaktion KB,Nej
+110011-2,Svalner Skatt & Transaktion KB,WsOut
 110090-1,Svalner Skatt & Transaktion KB,Ja
 110090-1,Svalner Skatt & Transaktion KB,WsIn
 109907-1,Ackordscentralen Stockholm AB,Ja
@@ -82,6 +83,7 @@
 109709-1,Advokatfirma Titov och Partners KB,WsOut
 109710-1,Advokatfirma Titov och Partners KB,Ja
 300028-4,SBC Sveriges BostadsrättsCentrum AB,Ja
+300028-4,SBC Sveriges BostadsrättsCentrum AB,WsIn
 110349-2,SBC Sveriges BostadsrättsCentrum AB,WsOut
 109950-2,Advokatbyrån Wallin & Partners AB,WsOut
 110179-1,Agenda Advokatbyrå AB,Ja
