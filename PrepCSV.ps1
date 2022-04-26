@@ -65,3 +65,7 @@ foreach ($row in $importTasks) {
 #And let us look at the result before closing the window.
 write-host "Done";
 cmd /c pause | out-null;
+
+#INC0703880 Resolved based on resolution of Parent Incident.
+#May be handeled somehow to handle child incidents in time report, currently probably just skiped
+#Future me must do some testing.
