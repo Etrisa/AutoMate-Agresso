@@ -9,7 +9,6 @@
 108248-7,Wesslau Söderqvist Advokatbyrå,WSAGlobal
 108825-1,Nordia Law Advokatfirma AS,Drift
 108825-4,Nordia Law Advokatfirma AS,WsIn
-108825-7,Nordia Law Advokatfirma AS,Ja
 108873-1,Nordia Law Advokatfirma AS,WsOut
 108787-6,Nordia Law Advokatfirma AS,Nej
 108721-2,Advokatfirman Fylgia,WsOut
@@ -31,6 +30,7 @@
 108048-7,Advokatfirman Westermark Anjou  AB,WsOut
 105292-3,WISTRAND,Ja
 105291-1,WISTRAND,WsOut
+105292-1,WISTRAND,WsIn
 110096-1,Brick Advokat Kommanditbolag,Ja
 105175-2,ADVOKAT LINDAHL,Ja
 105175-2,ADVOKAT LINDAHL,Drift
@@ -53,6 +53,7 @@
 109415-1,Ludvig & Co,WsOut
 109211-1,Sandvik,Ja
 109211-1,Sandvik,WsIn
+109158-2,Sandvik,WsOut
 109863-1,Cirio Advokatbyrå AB,Ja
 109802-2,Cirio Advokatbyrå AB,Nej
 109863-1,Cirio Advokatbyrå AB,WsIn
@@ -81,6 +82,7 @@
 110212-1,Advokatbyrån Kaiding Kommanditbolag,WsIn
 109709-1,Advokatfirma Titov och Partners KB,Nej
 109709-1,Advokatfirma Titov och Partners KB,WsOut
+109710-1,Advokatfirma Titov och Partners KB,WsIn
 109710-1,Advokatfirma Titov och Partners KB,Ja
 300028-4,SBC Sveriges BostadsrättsCentrum AB,Ja
 300028-4,SBC Sveriges BostadsrättsCentrum AB,WsIn
@@ -95,3 +97,5 @@
 109095-1,AG Advokat KB,WsIn
 109225-1,Bonava,WsOut
 109246-1,Bonava,WsIn
+109325-2,Skierfe Advokatfirma AB,WsOut
+109343-2,Skierfe Advokatfirma AB,WsIn
