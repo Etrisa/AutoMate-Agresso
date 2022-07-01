@@ -1,5 +1,6 @@
 ﻿Code,Company,Avtal
 108261-7,Wesslau Söderqvist Advokatbyrå,Ja
+108261-7,Wesslau Söderqvist Advokatbyrå,Drift
 108261-8,Wesslau Söderqvist Advokatbyrå,WsIn
 109925-3,Wesslau Söderqvist Advokatbyrå,WsOut
 108248-2,Wesslau Söderqvist Advokatbyrå,WSASth
@@ -31,9 +32,13 @@
 105292-3,WISTRAND,Ja
 105291-1,WISTRAND,WsOut
 105292-1,WISTRAND,WsIn
+105292-3,WISTRAND,Drift
 110096-1,Brick Advokat Kommanditbolag,Ja
 105175-2,ADVOKAT LINDAHL,Ja
+102994-1,ADVOKAT LINDAHL,Nej
 105175-2,ADVOKAT LINDAHL,Drift
+105175-1,ADVOKAT LINDAHL,WsIn
+104501-1,ADVOKAT LINDAHL,WsOut
 300028-4,Advania,Ja
 108455-1,MAQS Advokatbyrå Malmö Kommanditbolag,Ja
 108374-8,MAQS Advokatbyrå Malmö Kommanditbolag,Nej
@@ -103,3 +108,7 @@
 109828-2,Walthon Advokater,WsOut
 109886-1,Walthon Advokater,WsIn
 109886-1,Walthon Advokater,Ja
+500340-1,Sirius International Försäkrings AB,WsOut
+500340-1,Sirius International Försäkrings AB,Nej
+109158-2,Sandvik,WsOut
+109158-2,Sandvik,Nej
